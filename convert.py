@@ -1,7 +1,6 @@
 import pathlib
 import sys
 import re
-import shutil
 
 REPLACEMENTS = {
     r"https://cdn.jsdelivr.net/npm/bootstrap@5.[^/]*/dist/css/bootstrap.min.css": "{{ bootstrap5_css_url }}",
@@ -20,7 +19,6 @@ def convert_file(folder_path: pathlib.Path):
     for pattern, replacement in REPLACEMENTS.items():
         content = re.sub(pattern, replacement, content)
 
-    shutil.copy2(__file__.replace("convert.py", "app.py"), folder_path / "app.py")
     (folder_path / ".auth").touch()
 
     html_file.rename(folder_path / "index.jinja2").write_text(content, encoding="utf-8")

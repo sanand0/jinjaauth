@@ -4,8 +4,10 @@ This app converts static HTML files into Jinja templates that can only be access
 
 ## Conversion
 
+Using [uv](https://github.com/astral-sh/uv), run:
+
 ```bash
-uv run convert.py [FOLDER]
+uv run https://raw.githubusercontent.com/sanand0/jinjaauth/refs/heads/main/convert.py [FOLDER]
 ```
 
 If the folder has an `index.html`, it renames it to `index.jinja2` and, inside the file:
@@ -34,7 +36,7 @@ If the folder has an `index.html`, it renames it to `index.jinja2` and, inside t
 3. Run the server:
 
    ```bash
-   uv run app.py
+   uv run https://raw.githubusercontent.com/sanand0/jinjaauth/refs/heads/main/app.py
    ```
 
 This [`app.py`](app.py) is based on [staticauth](https://github.com/sanand0/staticauth) but
